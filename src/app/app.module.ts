@@ -1,7 +1,7 @@
 import { CoreModule } from './store.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {  HttpClientModule, HttpClient   } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EffectsModule } from '@ngrx/effects';
@@ -10,8 +10,9 @@ import { environment } from '../environments/environment';
 import { StoreModule } from '@ngrx/store';
 import { StatusComponent } from './status/status.component';
 import { UserComponent } from './user/user.component';
-import { StatusRoutingModule } from './status-routing.module';
 import { ItemEffects } from './store/item.effects';
+import { reducerItem } from './index.reducer';
+// import { Reducer } from './store/item.reducer';
 
 
 @NgModule({
@@ -23,10 +24,10 @@ import { ItemEffects } from './store/item.effects';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    // StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([ItemEffects]),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    StoreModule.forRoot({}, {}),
-    StatusRoutingModule,
+    StoreModule.forRoot(reducerItem),
+    // StoreModule.forFeature('item', Reducer),
     CoreModule,
     HttpClientModule
   ],

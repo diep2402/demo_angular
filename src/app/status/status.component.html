@@ -1,2 +1,7 @@
 <p>status</p>
 <button (click)="handleClick()">LOG</button>
+<ul>
+    <li *ngFor="let article of list | async">
+         {{article._id}} - {{article.nameStatus}} - {{article.priority}}   
+    </li>
+ </ul> 

@@ -1,11 +1,11 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { typeStore } from './item.state';
+import { typeStore } from './item.reducer';
 
 export const featureItem = createFeatureSelector<typeStore>('item');
 
 export const listStatus = createSelector(featureItem, (state) => {
-    console.log(state, "aloo day là selector");
-
-
+    return state.listStatus
 })
-export const listUser = createSelector(featureItem, (state) => state.listUsers)
+// console.log(listStatus, 'listStatus');
+
+export const listUser = createSelector(featureItem, (state:typeStore) => state.listStatus)

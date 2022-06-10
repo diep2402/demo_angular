@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
-import { ItemReducer } from './store/item.reducer';
+// import { Reducer } from './store/item.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { ItemEffects } from './store/item.effects';
-import {  HttpClientModule  } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
   imports: [
-    StoreModule.forFeature('item', ItemReducer),
+    // StoreModule.forFeature('item', Reducer),
     EffectsModule.forFeature([ItemEffects]),
     HttpClientModule
-    
+
   ]
 })
-export class CoreModule {}
+export class CoreModule { }

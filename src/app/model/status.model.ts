@@ -3,3 +3,4 @@ export interface Status {
     nameStatus : string;
     priority : String
 }
+
